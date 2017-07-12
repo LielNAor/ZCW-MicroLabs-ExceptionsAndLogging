@@ -51,10 +51,12 @@ public final class PhoneNumberFactory {
      */ 
     public static PhoneNumber createPhoneNumberSafely(int areaCode, int centralOfficeCode, int phoneLineCode) throws InvalidPhoneNumberFormatException {
     	String phoneNumberString = "("+areaCode+")-"+centralOfficeCode+"-"+phoneLineCode;
-    	if(phoneNumberString.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {
+    	try{
     		return createPhoneNumber(phoneNumberString);
+    	} catch (InvalidPhoneNumberFormatException ipnfe){
+    		return null;
     	}
-        return null;
+        
     }
 
     /**
