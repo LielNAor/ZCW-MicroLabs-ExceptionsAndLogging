@@ -56,7 +56,6 @@ public final class PhoneNumberFactory {
     	} catch (InvalidPhoneNumberFormatException ipnfe){
     		return null;
     	}
-        
     }
 
     /**
